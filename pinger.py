@@ -22,6 +22,7 @@ while True:
       '🔴 *Host ' + hostname + ' is down!* Will check again in 5 minutes.')
     time.sleep(300)
     response = os.system('ping -c 1 ' + hostname)
+    # TODO: the script should continue pinging even when the host is down but without sending any messages to telegram
     if response == 0:
       telegram_bot_sendtext(
         '🟢 *Host ' + hostname + ' is back up again!* Connection re-established')
