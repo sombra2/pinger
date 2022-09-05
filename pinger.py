@@ -14,9 +14,8 @@ def telegram_bot_sendtext(bot_message):
   response = requests.get(send_text)
   return response.json()
 
-
+telegram_bot_sendtext('📡 Monitoring of host *{}* started.\nTimestamp {}'.format(hostname, now))
 while True:
-  telegram_bot_sendtext('📡 Monitoring of host *{}* started.\nTimestamp {}'.format(hostname, now))
   response = os.system('ping -c 1 ' + hostname)
   if response == 0:
     time.sleep(60)
